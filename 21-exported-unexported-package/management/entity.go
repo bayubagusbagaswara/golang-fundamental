@@ -1,0 +1,33 @@
+package management
+
+import "fmt"
+
+type User struct {
+	ID        int
+	FirstName string
+	LastName  string
+	Email     string
+	IsActive  bool
+}
+
+func (user User) Display() string {
+	return fmt.Sprintf("Name: %s %s, Email: %s", user.FirstName, user.LastName, user.Email)
+}
+
+type Group struct {
+	Name        string
+	Admin       User
+	Users       []User
+	IsAvailable bool
+}
+
+func (group Group) DisplayGroup() {
+	fmt.Printf("Name : %s", group.Name)
+	fmt.Println("")
+	fmt.Printf("Member Count : %d", len(group.Users))
+	fmt.Println("")
+
+	for _, user := range group.Users {
+		fmt.Println("User: ", user.FirstName)
+	}
+}
