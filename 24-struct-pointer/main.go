@@ -8,26 +8,19 @@ type Student struct {
 	GPA  float32
 }
 
+// Method dengan Pointer Receiver
+
 func main() {
 
 	student := Student{1, "Bayu Bagaswara", 3.23}
 
-	fmt.Println(student.Name) // Bayu Bagaswara
+	fmt.Println(student.Name)
 
-	// panggil function graduate dan kirimkan parameter student yang berupa struct
-	// pertama kita passing alamat memori dari struct student
 	graduate(&student)
 
-	fmt.Println(student.Name) // harapannya ini sudah diubah name nya
-
+	fmt.Println(student.Name)
 }
 
-// kita ingin ngepassing struct ke dalam function
-// tapi yang dipassing bukan value structnya, melaikan pointer alamat valuenya
-
-// ini adalah function graduate yang menerima parameter struct Student
 func graduate(student *Student) {
-	// disini kita ingin mengubah nama studentnya, karena sudah lulus
 	student.Name = student.Name + " S.T"
-
 }
