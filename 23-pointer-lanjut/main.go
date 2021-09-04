@@ -25,13 +25,19 @@ func main() {
 	number := 5
 	fmt.Println("Nilai awal: ", number) // 5
 
+	// &number artinya menunjuk ke alamat memori yang menyimpan nilai 5 (reference)
+	// sehingga di function chance ini, kita mengirimkan alamat memory dan nilai 100
 	change(&number, 100)
 
 	fmt.Println("Nilai akhir: ", number) // 100
 
 }
 
+// * itu menunjuk ke alamat memori
+// jadi old *int artinya adalah variabel old menampung alamat memori
+// old menampung alamat memori
 func change(old *int, new int) {
-	*old = new // ini adalah alamat memori
-	fmt.Println("Di dalam function: ", *old)
+	*old = new // old adalah menampung alamat memori, agar old bisa diisi oleh nilai baru, maka ubah dengan menambahkan tanda * pada old (DEREFERENCE)
+	fmt.Println("Di dalam function: ", old)
+	fmt.Println("Di dalam function: ", *old) // old sudah diisi nilai baru
 }
